@@ -6,6 +6,7 @@ import { Applications } from './components/Pages/Applications';
 import { Contacts } from './components/Pages/Contacts';
 import { Documents } from './components/Pages/Documents';
 import { Resources } from './components/Pages/Resources';
+import { JobManager } from './components/JobManager';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('dashboard');
@@ -22,6 +23,8 @@ function App() {
         return <Documents />;
       case 'resources':
         return <Resources />;
+      case 'supabase-demo':
+        return <JobManager />;
       default:
         return <Dashboard />;
     }

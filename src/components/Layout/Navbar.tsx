@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Moon, Sun, Search, Bell, User, Settings } from 'lucide-react';
+import { Moon, Sun, Search, Bell, User, Settings, Database } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
 
 interface NavbarProps {
@@ -17,6 +17,7 @@ export function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
     { id: 'contacts', label: 'Contacts' },
     { id: 'documents', label: 'Documents' },
     { id: 'resources', label: 'Resources' },
+    { id: 'supabase-demo', label: 'Supabase Demo' },
   ];
 
   return (
@@ -48,13 +49,14 @@ export function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setCurrentPage(item.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center space-x-1 ${
                   currentPage === item.id
                     ? 'bg-white/20 dark:bg-gray-800/40 text-blue-600 dark:text-blue-400 shadow-lg'
                     : 'text-gray-600 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800/20'
                 }`}
               >
-                {item.label}
+                {item.id === 'supabase-demo' && <Database className="w-4 h-4" />}
+                <span>{item.label}</span>
               </motion.button>
             ))}
           </div>
